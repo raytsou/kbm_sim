@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="topic" default="/cmd" />
+
+  <node name="kbm_sim" pkg="kbm_sim" type="node" output="screen" clear_params="true">
+    <param name="topic" value="$(arg topic)" />
+  </node>
+</launch>
