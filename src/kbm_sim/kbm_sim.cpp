@@ -37,15 +37,19 @@ void Sim::release_keys(const std::vector<std::string> keys){
 
 void Sim::mouse_click(const std::vector<unsigned int> keys){
     for (auto k: keys){
-        XTestFakeButtonEvent(display, k, True, 0);
-        XFlush(display);
+        if (k > 0 && k < 10){
+            XTestFakeButtonEvent(display, k, True, 0);
+            XFlush(display);
+        }
     }
 }
 
 void Sim::mouse_release(const std::vector<unsigned int> keys){
     for (auto k: keys){
-        XTestFakeButtonEvent(display, k, False, 0);
-        XFlush(display);
+        if (k > 0 && k < 10){
+            XTestFakeButtonEvent(display, k, False, 0);
+            XFlush(display);
+        }
     }
 }
 
